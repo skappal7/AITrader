@@ -7,3 +7,5 @@ plotly
 scikit-learn
 openai
 python-dotenv
+
+# Rebuild trigger
