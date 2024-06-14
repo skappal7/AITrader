@@ -1,14 +1,27 @@
 import os
-os.system('pip install yfinance')
+import sys
+import subprocess
+
+# Ensure the package is installed
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+try:
+    import yfinance as yf
+except ImportError:
+    install('yfinance')
+    import yfinance as yf
 
 import streamlit as st
-import yfinance as yf
 from alpaca_trade_api import REST
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 from datetime import datetime
 import openai
+
+# Your app code here
+
 
 # Function to get user input for API keys
 def get_api_keys():
